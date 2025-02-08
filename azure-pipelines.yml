@@ -20,13 +20,11 @@ steps:
     displayName: 'Use Python $(python.version)'
  
   - script: |
-python -m pip install --upgrade pip 
+     python -m pip install --upgrade pip 
 
-pip install -r requirements.txt 
+     pip install -r requirements.txt 
+    displayName: 'Install dependencies'  
 
-displayName: 'Install dependencies'  
-
- 
  - task: ArchiveFiles@2
     displayName: 'Archive files'
     inputs:
@@ -41,7 +39,6 @@ displayName: 'Install dependencies'
   - task: PublishBuildArtifacts@1 
 
     inputs: 
-
       PathtoPublish: '$(Build.ArtifactStagingDirectory)' 
 
       ArtifactName: 'drop' 
@@ -56,4 +53,4 @@ displayName: 'Install dependencies'
 
       pytest 
 
-      displayName: 'pytest'
+      displayName: 'pytest'   
